@@ -1,170 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Celebrity Show 2025</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      height: 100vh;
-    }
-     .header{
-       border-bottom: 1px solid lightgrey;
-     
-     }
-    .container {
-      text-align: center;
-      max-width: 600px;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 0 auto;
-    }
-
-    .title-red {
-      color: red;
-      font-size: 24px;
-      margin-left: 100px;
-    }
-
-    .title-yellow {
-      color: yellow;
-      font-size: 45px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .time-box {
-      background: #222;
-      padding: 20px 10px;
-      border-radius: 5px;
-      width: 80px;
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 36px;
-      font-weight: bold;
-    }
-
-    .time-box p {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .buttons {
-      margin: 10px 0;
-    }
-
-    .btn {
-         padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 80%;
-    height: 45px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Celebrity Show - Rajahmundry</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
-}
-    .btn.red {
-      background: red;
-      color: white;
-    }
+    <style>
+        /* Custom Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-    .btn.gray {
-      background: gray;
-      color: white;
-    }
+        .countdown-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 100px;
+        }
 
-    .event-details {
-      font-size: 14px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+        .celebrity-card {
+            transition: transform 0.3s ease;
+        }
 
-    .event-details p {
-      margin: 5px 0;
-      font-size: 16px;
-    }
+        .celebrity-card:hover {
+            transform: translateY(-10px);
+        }
 
-    .icon {
-      margin-right: 5px;
-    }
-  </style>
+        .highlight-card {
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            background: #dc3545 !important;
+            color: white !important;
+        }
+
+        .highlight-card:hover i {
+            color: white !important;
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #dc3545;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #dc3545;
+            border-radius: 50%;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="title-red">Local Celebrity Show</h1>
-    </div>
-  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold gradient-text" href="#">Local Celebrity Show</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#celebrities">Celebrities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tickets">Tickets</a></li>
+                    <li class="nav-item"><a class="btn btn-danger ms-2" href="#book">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4" data-aos="fade-up">
+                <span class="text-warning">LOCAL CELEBRITY</span><br>
+                SHOW 2025
+            </h1>
+            
+            <!-- Countdown Timer -->
+            <div class="d-flex justify-content-center gap-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="countdown-box" id="days">
+                    <h3 class="countdown-value">00</h3>
+                    <p class="mb-0">Days</p>
+                </div>
+                <div class="countdown-box" id="hours">
+                    <h3 class="countdown-value">00</h3>
+                    <p class="mb-0">Hours</p>
+                </div>
+                <div class="countdown-box" id="minutes">
+                    <h3 class="countdown-value">00</h3>
+                    <p class="mb-0">Minutes</p>
+                </div>
+                <div class="countdown-box" id="seconds">
+                    <h3 class="countdown-value">00</h3>
+                    <p class="mb-0">Seconds</p>
+                </div>
+            </div>
+
+            <div class="event-details mb-5" data-aos="fade-up" data-aos-delay="200">
+                <p class="mb-2"><i class="fas fa-calendar me-2"></i> January 25, 2025</p>
+                <p class="mb-2"><i class="fas fa-clock me-2"></i> 6:00 PM - 9:00 PM</p>
+                <p><i class="fas fa-map-marker-alt me-2"></i> Anam Kalakendram, Rajahmundry</p>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3" data-aos="fade-up" data-aos-delay="300">
+                <a href="#book" class="btn btn-danger btn-lg px-4">Book Tickets</a>
+                <a href="#trailer" class="btn btn-outline-light btn-lg px-4">Watch Trailer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlights -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Event Highlights</h2>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="highlight-card bg-white p-4 rounded-3 h-100 text-center">
+                        <i class="fas fa-star fa-2x text-danger mb-3"></i>
+                        <h4>Live Performances</h4>
+                        <p class="mb-0">Exclusive live acts by celebrities</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card bg-white p-4 rounded-3 h-100 text-center">
+                        <i class="fas fa-music fa-2x text-danger mb-3"></i>
+                        <h4>Musical Shows</h4>
+                        <p class="mb-0">Entertainment packed performances</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-card bg-white p-4 rounded-3 h-100 text-center">
+                        <i class="fas fa-camera fa-2x text-danger mb-3"></i>
+                        <h4>Photo Sessions</h4>
+                        <p class="mb-0">Meet & greet with photo opportunities</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-card bg-white p-4 rounded-3 h-100 text-center">
+                        <i class="fas fa-video fa-2x text-danger mb-3"></i>
+                        <h4>Live Recording</h4>
+                        <p class="mb-0">Professional event recording</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebrities Section -->
+    <section class="py-5" id="celebrities">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Featured Celebrities</h2>
+            <div class="row g-4">
+                <div class="col" data-aos="fade-up">
+                    <div class="celebrity-card card h-100 text-center">
+                        <div class="card-body">
+                            <div class="rounded-circle mx-auto mb-4 bg-light" style="width: 120px; height: 120px;"></div>
+                            <h5 class="card-title">Dr.Prudhvi Raj garu</h5>
+                            <p class="text-danger">Senior Film Actor</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other celebrities -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="py-5 bg-light" id="schedule">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Event Schedule</h2>
+            <div class="timeline">
+                <div class="timeline-item mb-4" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <h4>6:00 PM - Opening Ceremony</h4>
+                    <p>Grand welcome and introduction</p>
+                </div>
+                <!-- Add more schedule items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section class="py-5 bg-danger text-white" id="tickets">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Get Your Tickets</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card bg-transparent border-white text-center">
+                        <div class="card-body">
+                            <h3>Standard</h3>
+                            <h2 class="my-4">₹499</h2>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check me-2"></i>Regular seating</li>
+                                <li class="mb-2"><i class="fas fa-check me-2"></i>Event access</li>
+                                <li class="mb-2"><i class="fas fa-check me-2"></i>Basic package</li>
+                            </ul>
+                            <button class="btn btn-light">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more ticket tiers -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container text-center">
+            <h3 class="mb-4">COMEDIAN DR.BHADRAM'S</h3>
+            <h4 class="text-danger mb-4">FILM HOUSE</h4>
+            <p>EVENTS + CASTING + PRODUCTIONS</p>
+            <div class="mt-4">
+                <p><i class="fas fa-phone me-2"></i> 83411 66668 | 79931 33499</p>
+            </div>
+            <div class="mt-4">
+                <p>Presented by</p>
+                <p>Aishwarya Group of Industries & Akhi Media</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
-    <h2 class="title-yellow">LOCAL CELEBRITY<br/> <span style="color: #fff;">SHOW 2025</span></h2>
-    <div class="timer">
-      <div class="time-box">
-        <span id="days">0</span>
-        <p>DAYS</p>
-      </div>
-      <div class="time-box">
-        <span id="hours">0</span>
-        <p>HOURS</p>
-      </div>
-      <div class="time-box">
-        <span id="minutes">0</span>
-        <p>MINUTES</p>
-      </div>
-      <div class="time-box">
-        <span id="seconds">0</span>
-        <p>SECONDS</p>
-      </div>
-    </div>
-    <div class="buttons">
-      <button class="btn red">Book Your Tickets</button>
-    </div>
-       <div class="buttons">
-      <button class="btn gray">Watch Trailer</button>
-    </div>
-    <div class="event-details">
-      <p><span class="icon">📅</span> Jan 25, 2025</p>
-      <p><span class="icon">⏰</span> 6 PM - 9 PM</p>
-      <p><span class="icon">📍</span> Anam Kalakendram</p>
-    </div>
-  </div>
-  <script>
-    const countdown = () => {
-      const eventDate = new Date("2025-01-25T18:00:00").getTime();
-      const now = new Date().getTime();
-      const diff = eventDate - now;
+    <script>
+        // Initialize AOS
+        AOS.init();
 
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
-      } else {
-        document.querySelector(".timer").innerHTML = "<p>Event Started!</p>";
-      }
-    };
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-01-25T18:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = eventDate - now;
 
-    setInterval(countdown, 1000);
-    countdown();
-  </script>
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.querySelector('#days .countdown-value').textContent = days.toString().padStart(2, '0');
+            document.querySelector('#hours .countdown-value').textContent = hours.toString().padStart(2, '0');
+            document.querySelector('#minutes .countdown-value').textContent = minutes.toString().padStart(2, '0');
+            document.querySelector('#seconds .countdown-value').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
