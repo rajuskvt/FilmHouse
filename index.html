@@ -148,11 +148,28 @@
 
             <div class="d-flex justify-content-center gap-3" data-aos="fade-up" data-aos-delay="300">
                 <a href="#book" class="btn btn-danger btn-lg px-4">Book Tickets</a>
-                <a href="#trailer" class="btn btn-outline-light btn-lg px-4">Watch Trailer</a>
+                <a href="#" class="btn btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#trailerModal">Watch Trailer</a>  
+
+                
             </div>
         </div>
     </section>
-
+    <!-- Modal for Watch Trailer -->  
+    <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">  
+        <div class="modal-dialog modal-dialog-centered">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <h5 class="modal-title" id="trailerModalLabel">Event Trailer</h5>  
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>  
+                <div class="modal-body">  
+                    <div class="ratio ratio-16x9">  
+                        <iframe src="https://www.youtube.com/embed/your-video-id" title="YouTube video" allowfullscreen></iframe>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
     <!-- Event Highlights -->
     <section class="py-5 bg-light" id="about">
         <div class="container">
