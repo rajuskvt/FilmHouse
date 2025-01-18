@@ -90,6 +90,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .rounded-circle img {  
+    width: 100%; /* Make the image fill the parent div */  
+    height: 100%; /* Maintain aspect ratio */  
+    object-fit: cover; /* Ensure the image doesn't stretch */  
+    border-radius: 50%; /* Make the image round */  
+}  
     </style>
 </head>
 <body>
@@ -215,6 +221,8 @@
                 <div class="col" data-aos="fade-up">
                     <div class="celebrity-card card h-100 text-center">
                         <div class="card-body">
+
+                            
                             <div class="rounded-circle mx-auto mb-4 bg-light" style="width: 120px; height: 120px;">
                                 <img src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/prudhvi-9063-1663057847.jpg" alt="Girl in a jacket" width="500" height="600">
                             </div>
